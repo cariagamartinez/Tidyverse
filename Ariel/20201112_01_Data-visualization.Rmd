@@ -1,0 +1,205 @@
+---
+title: "Data Visualization"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+Author: Ariel Cariaga Martínez
+---
+\
+Buenas prácticas para un script:
+
+* Poner la fecha
+* Poner un título genérico.
+* Cargar las librerías y copiar los datos devueltos en la consola para tenerlos como referencias para el futuro.
+
+## Cargar librerías.
+\
+Entonces, en primer lugar vamos a cargar la librería __"tidyverse"__:
+```{r Cargar librería}
+library(tidyverse)
+```
+\
+Como buena práctica, __es importante tener registrada la salida por consola para conocer el estado y versión de los paquetes cargados__.
+
+\
+Esto es lo que obtenemos a día de hoy:
+
+
+* ── Attaching packages ──────────────────────────────────────────────── tidyverse 1.3.0 ──
+* ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+* ✓ tibble  3.0.4     ✓ dplyr   1.0.2
+* ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+* ✓ readr   1.4.0     ✓ forcats 0.5.0
+── Conflicts ─────────────────────────────────────────────────── tidyverse_conflicts() ──
+* x dplyr::filter() masks stats::filter()
+* x dplyr::lag()    masks stats::lag()
+
+---
+
+## Analisis preliminar: Cargar datos preestablecidos
+\
+Para comenzar a visualizar los datos, necesitamos datos y también preguntas sobre esos datos. Vamos a empezar con estos dos puntos:
+
+\
+
+__Preguntas__.
+
+- Los coches con motor más grande ¿consumen más combustible que los coches con motor más pequeño?
+- La relación consumo / tamaño ¿es lineal? ¿Es no lineal? ¿Es exponencial? ¿Es positiva? ¿Es negativa?
+
+\
+
+__Datos__.
+
+Vamos a cargar un dataset que viene de serie en RStudio y que se llama __"mpg"__.
+
+```{r Indicar dataset}
+ggplot2::mpg
+```
+\
+Como podemos ver, hay coches y datos sobre los mismos (estos datasets vienen por defecto en R) y se puede saber que son datos ya que al cargar el código ggplot2::mpg se observa un icono de celdas.
+Sin embargo, verlo así es muy complicado por lo que es mejor ver la tabla completa con el comando "View" (lleva V mayúscula inicial):
+```{r Ver el dataset}
+View(mpg)
+```
+\
+Tras ejecutar este código tendremos una nueva pestaña donde se mostrará una rejilla con todos los datos necesarios.
+
+Hay muchas columnas con muchos datos y nombres que es posible que nos sepamos su significado. Pero podemos consultar acerca del dataset con la siguiente instrucción:
+```{r Solicitar ayuda 1}
+help(mpg) 
+```
+\
+Otra opción para realizar la misma consulta es:
+```{r Solicitar ayuda 2}
+?mpg #Equivalente a help.
+```
+\
+Por ahora nos quedamos con el recordatorio de dos nombres:
+
+- __displ__: tamaño del motor del coche en litros
+- __hwy__: número de millas recorridas en autopista por galón de combustible (3.785411784 litros).
+
+---
+
+## Primera representación
+\
+Vamos a hacer una primera representación con el siguiente código:
+```{r Primer gráfico}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x=displ, y = hwy))
+```
+\
+Como podemos ver en la instrucción:
+
+\
+
+A) Llamamos a ggplot y le indicamos que los datos a utilizar serán los del _dataset_ (que ya tenemos cargado) __mpg__. En esta línea creamos el "entorno" de toda la gráfica y luego vamos agregando _capas_ de información.
+B) Agregamos un símbolo "+" que en este contexto significa que agregaremos más información a la instrucción.
+C) Definimos el tipo de geometría de representación que queremos (en este caso, puntos = scatterplot o nube de puntos) y en la estética (aes) indicamos qué columna es $x$ y qué columna es $y$ así como las propiedades visuales.
+
+_**Cada vez que se use una propiedad "geom_lo-que-sea" hay que indicarle un "mapping" y un "aes"**_.
+
+\
+
+## Primera conclusión: plantilla general
+\
+__PLANTILLA PARA HACER UNA REPRESENTACIÓN GRÁFICA CON GGPLOT__
+
+\
+ggplot(data = datos_a_representar) +
+\
+  geom_function(mapping = aes(<MAPPINGS>))
+
+---
+\
+
+## Estéticas del gráfico
+
+#### Colores
+
+Vamos a generar un gráfico, donde nos interesaría agregar una nueva dimensión, donde podamos modificar ligeramente la estética del gráfico para resaltar algunas características en particular. 
+```{r Estetica}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y =hwy, color = class))
+```
+\
+En este caso, el color viene definido por la columna "class", pintándose en un color diferente cada una de las clases/tipo (que son categorías) de coches. Si nos fijamos en el gráfico, parece que los coches con "mayor gasto" (mayor displ/potencia y gasto medio) son los coches de 2 asientos...probablemente deportivos.
+\
+
+#### Tamaño
+
+Otra opción sería que el gráfico generara distintos conglomerados según el tipo de coche y eso podemos verlo con el comando _size_:
+```{r}
+ggplot(data=mpg) +
+  geom_point(mapping = aes(x = displ, y =hwy, size = class))
+```
+\
+Hay un aviso porque "size" es un comando que espera un tamaño (numérico) y nosotros le estamos pasando categorías (class).
+\
+#### Transparencia de los puntos
+Para ello vamos a usar el comando "alpha"
+```{r}
+ggplot (data = mpg) +
+  geom_point (mapping = aes(x = displ,
+                           y = hwy,
+                           alpha = class
+                           )
+              )
+```
+
+#### Formas
+
+También podríamos jugar con las formas de los puntos: asignar una forma a cada punto. El problema es que ggplot es capaz de manejar hasta un máximo de 6 formas bajo el parámetro "shape". Veamos:
+```{r}
+ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, 
+                           y = hwy, 
+                           shape = class
+                           )
+               )
+
+```
+
+## Subgrafícos usando variables categóricas
+\
+Hasta ahora habíamos usado variables discretas/categóricas para poner colores en un gráfico y también habíamos visto que muchas veces usar estas variables (categóricas) como parámetros del gráfico llevaba a "advertencias" (_warnings_). Por ello, en este apartado vamos a ver la instrucción __facets__ para subdividir el gráfico en "facetas" siendo cada una de estas facetas una variable discreta. 
+\
+Por ejemplo: imaginemos que en lugar que querer un color en el gráfico por cada tipo de coche, realmente queremos un gráfico separado donde $x$ e $y$ sigan siendo las mismas pero queremos subgráficos con cada uno de los tipos de coche. En ese caso podemos usar _facets_. Así, en cada subgráfico, las variables representadas siguen siendo iguales pero se distribuyen según la variable categórica selecionada. 
+\
+La variable seleccionada se indica con una tilde ~ (altgr + ñ) y luego se pueden indicar el número de columnas ("ncol") y filas (""nrow") en las que queremos que se distribuyan las gráficas.
+\
+Veamos un ejemplo:
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x= displ, 
+                            y = hwy
+                           )
+             ) + 
+  facet_wrap(~class, nrow = 4)
+```
+\
+En este gráfico, lo que se observa es que en todos los puntos el gasto en carretera y el displacement se grafica, pero se separa según una variable discreta que en este caso es _class_.
+\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
