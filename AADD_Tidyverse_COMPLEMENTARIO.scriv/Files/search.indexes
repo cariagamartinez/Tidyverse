@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SearchIndexes Version="1.0">
+    <Documents>
+        <Document ID="A1076F27-9A53-4DB7-9E5C-82E7E9933FED">
+            <Title>Chuleta R</Title>
+        </Document>
+        <Document ID="49D4F98F-B68D-4D09-96F9-1F13A6DE2D44">
+            <Title>Curso R con Tidyverse</Title>
+        </Document>
+        <Document ID="8719395C-044D-4A8E-91BF-26BCBFCEFCC9">
+            <Title>Tarea 1</Title>
+            <Text>
+Preguntas de esta tarea
+
+Toma el siguiente fragmento de código y di qué está mal. ¿Por qué no aparecen pintados los puntos de color verde?
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, color = "green"))
+
+NO SE PINTAN PORQUE NO EXISTE LA COLUMNA “green” a la que se pueda asociar la estética
+
+Toma el dataset de mpg anterior y di qué variables son categóricas.
+Las variables categóricas son clases, como tipos de coches, marcas, tipo de marchas, cilindradas o modelos (solo admiten ciertos valores). Años también sería una variable categórica, pero podría asimilarse a “contínua” más fácilmente.
+
+Toma el dataset de mpg anterior y di qué variables son contínuas.
+Las variables contínuas pueden tomar cualquier valor, aunque este dataset el valor que toman es muy específico, realmente podrían tomar otros con más precisión, como displ, hwy, cty
+
+Dibuja las variables contínuas con color, tamaño y forma respectivamente. 
+
+¿En qué se diferencian las estéticas para variables contínuas y categóricas?
+
+¿Qué ocurre si haces un mapeo de la misma variable a múltiples estéticas?
+
+Vamos a conocer una estética nueva llamada stroke. ¿Qué hace? ¿Con qué formas funciona bien? 
+
+¿Qué ocurre si haces un mapeo de una estética a algo que no sea directamente el nombre de una variable (por ejemplo aes(color = displ &lt; 4))?
+
+Quedaría así:
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, color = displ&lt;4))
+
+En este caso, se pinta la estética como dicotómica (V-F) según se cumpla la condición.</Text>
+        </Document>
+        <Document ID="FC0122DA-9D54-47A1-B774-70A3E18A6489">
+            <Title>Chuleta R</Title>
+            <Text> Base R
+Cheat Sheet
+Getting Help
+Accessing the help files
+?mean
+Get help of a particular function. help.search(‘weighted mean’) Search the help files for a word or phrase. help(package = ‘dplyr’)
+Find help for a package.
+More about an object
+str(iris)
+Get a summary of an object’s structure. class(iris)
+Find the class an object belongs to.
+Using Packages
+install.packages(‘dplyr’) Download and install a package from CRAN.
+library(dplyr)
+Load the package into the session, making all its functions available to use.
+dplyr::select
+Use a particular function from a package.
+data(iris)
+Load a built-in dataset into the environment.
+Working Directory
+getwd()
+Find the current working directory (where inputs are found and outputs are sent).
+setwd(‘C://file/path’) Change the current working directory.
+Use projects in RStudio to set the working directory to the folder you are working in.
+Vectors
+Creating Vectors
+Programming
+       For Loop
+While Loop
+ c(2, 4, 6)
+ 246
+Join elements into a vector
+ 2:6
+23456
+ An integer sequence
+seq(2, 3, by=0.5)
+2.0 2.5 3.0
+A complex sequence
+ rep(1:2, times=3)
+121212
+ Repeat a vector
+rep(1:2, each=3)
+111222
+Repeat elements of a vector
+       Vector Functions
+Example
+If Statements
+Example
+Reading and Writing Data
+Example
+Functions
+Example
+Also see the readr package.
+      sort(x)
+Return x sorted. table(x)
+See counts of values.
+rev(x)
+Return x reversed. unique(x) See unique values.
+ Selecting Vector Elements
+By Position
+    x[4] The fourth element.
+ x[-4] All but the fourth.
+ x[2:4] Elements two to four.
+ x[-(2:4)]
+All elements except two to four.
+ x[c(1, 5)]
+Elements one and five.
+     Input
+Ouput
+Description
+df &lt;- read.table(‘file.txt’)
+write.table(df, ‘file.txt’)
+Read and write a delimited text file.
+df &lt;- read.csv(‘file.csv’)
+write.csv(df, ‘file.csv’)
+Read and write a comma separated value file. This is a special case of read.table/ write.table.
+load(‘file.RData’)
+save(df, file = ’file.Rdata’)
+Read and write an R data file, a file type special for R.
+      RStudio® is a trademark of RStudio, Inc. • CC BY Mhairi McNeill • mhairihmcneill@gmail.com
+Learn more at web page or vignette • package version • Updated: 3/15
+By Value
+for (variable in sequence){
+   Do something
+}
+while (condition){
+   Do something
+}
+  for (i in 1:4){ j &lt;- i + 10
+print(j) }
+while (i &lt; 5){
+   print(i)
+i &lt;- i + 1 }
+  if (condition){
+   Do something
+} else {
+   Do something different
+}
+function_name &lt;- function(var){ Do something
+return(new_variable) }
+  if (i &gt; 3){ print(‘Yes’)
+} else { print(‘No’)
+}
+square &lt;- function(x){
+squared &lt;- x*x
+   return(squared)
+}
+  x[x == 10]
+Elements which are equal to 10.
+ x[x &lt; 0]
+All elements less than zero.
+ x[x %in% Elements in the set c(1, 2, 5)] 1, 2, 5.
+     Named Vectors
+ a == b
+Are equal
+a&gt;b
+Greater than
+a &gt;= b
+Greater than or equal to
+is.na(a)
+Is missing
+a != b
+Not equal
+a&lt;b
+Less than
+a &lt;= b
+Less than or equal to
+is.null(a)
+Is null
+  Conditions
+ x[‘apple’]
+Element with name ‘apple’.
+
+    Types
+Converting between common data types in R. Can always go from a higher value in the table to a lower value.
+Matrices
+m &lt;- matrix(x, nrow = 3, ncol = 3) Create a matrix from x.
+Strings
+ paste(x, y, sep = ' ')
+paste(x, collapse = ' ')
+    grep(pattern, x)
+gsub(pattern, replace, x)
+       toupper(x)
+       tolower(x)
+        nchar(x)
+Also see the stringr package. Join multiple vectors together.
+Join elements of a vector together. Find regular expression matches in x. Replace matches in x with a string. Convert to uppercase.
+Convert to lowercase.
+Number of characters in a string.
+   w
+m[2, ] - Select a row
+t(m) Transpose m %*% n Matrix Multiplication solve(m, n) Find x in: m * x = n
+   as.logical as.numeric as.character as.factor
+log(x)
+exp(x)
+max(x)
+min(x)
+round(x, n)
+signif(x, n)
+cor(x, y)
+TRUE, FALSE, TRUE
+1, 0, 1
+'1', '0', '1'
+'1', '0', '1',
+levels: '1', '0'
+Boolean values (TRUE or FALSE).
+Integers or floating point numbers.
+Character strings. Generally preferred to factors.
+Character strings with preset levels. Needed for some statistical models.
+w
+m[ , 1] - Select a column w
+w
+w
+m[2, 3] - Select an element w
+Lists
+l &lt;- list(x = 1:5, y = c('a', 'b'))
+A list is a collection of elements which can be of different types.
+w
+w w
+Factors
+  Maths Functions
+factor(x)
+Turn a vector into a factor. Can set the levels of the factor and the order.
+cut(x, breaks = 4)
+Turn a numeric vector into a factor by ‘cutting’ into sections.
+ Natural log. Exponential. Largest element. Smallest element.
+Round to n decimal places.
+Round to n significant figures.
+Correlation.
+sum(x)
+mean(x)
+median(x)
+quantile(x)
+rank(x)
+var(x)
+sd(x)
+Sum.
+Mean.
+Median.
+Percentage quantiles.
+Rank of elements. The variance.
+The standard deviation.
+l[[2]]
+Second element of l.
+Also see the dplyr package.
+l[1]
+New list with only the first element.
+l$x
+Element named x.
+l['y']
+New list with only element named y.
+Statistics
+t.test(x, y)
+Perform a t-test for difference between means.
+pairwise.t.test
+Perform a t-test for paired data.
+Distributions
+  lm(y ~ x, data=df)
+Linear model.
+glm(y ~ x, data=df)
+Generalised linear model.
+summary
+Get more detailed information out a model.
+ Data Frames
+prop.test
+Test for a difference between proportions.
+aov
+Analysis of variance.
+ df &lt;- data.frame(x = 1:3, y = c('a', 'b', 'c')) A special case of a list where all elements are the same length.
+ x
+y
+1
+a
+2
+b
+3
+c
+  df$x
+List subsetting
+df[[2]]
+  Variable Assignment
+The Environment
+Understanding a data frame
+         Random Variates
+Density Function
+Cumulative Distribution
+Quantile
+ Normal
+rnorm
+dnorm
+pnorm
+qnorm
+ Poisson
+rpois
+dpois
+ppois
+qpois
+ Binomial
+rbinom
+dbinom
+pbinom
+qbinom
+ Uniform
+ runif
+ dunif
+punif
+qunif
+  &gt; a &lt;- 'apple' &gt;a
+[1] 'apple'
+       ls()
+rm(x)
+rm(list = ls())
+List all variables in the environment.
+Remove x from the environment.
+Matrix subsetting
+df[ , 2]
+df[2, ]
+df[2, 2]
+      View(df)
+      head(df)
+nrow(df)
+Number of rows.
+ncol(df)
+Number of columns.
+dim(df)
+Number of columns and rows.
+See the full data frame.
+See the first 6 rows.
+cbind - Bind columns.
+rbind - Bind rows.
+Plotting
+plot(x)
+Values of x in order.
+Also see the ggplot2 package.
+      You can use the environment panel in RStudio to browse variables in your environment.
+Dates
+Remove all variables from the environment.
+plot(x, y)
+Values of x against y.
+hist(x)
+Histogram of x.
+  RStudio® is a trademark of RStudio, Inc. • CC BY Mhairi McNeill • mhairihmcneill@gmail.com • 844-448-1212 • rstudio.com
+See the lubridate package. Learn more at web page or vignette • package version • Updated: 3/15
+</Text>
+        </Document>
+        <Document ID="9E869D40-5E4E-4FD2-A88B-A8A7A6399F0A">
+            <Title>Bases e inicio de R y Tidyverse</Title>
+            <Synopsis>Estos son los apuntes de Ariel para el curso de Tidyverse.</Synopsis>
+            <Text>Bases 
+
+	✓	Esto es ser Data Scientist en el siglo XXI:
+#
+	✓	El «data wrangling» (limpieza de datos) es el 80% del tiempo (perdido) —&gt; Transformar, visualizar, modelar.
+	✓	La sumatoria de programación, matemática (y estadística) y el dominio del área son fundamentales para “Data Science”.
+	✓	¡La opinión del experto cuenta!
+
+
+Documento escrito para iniciarte
+
+Este documento pretende que empieces a trabajar con R nada más abrirlo. Será escrito considerando que durante mucho tiempo estará cerrado y será necesario volver a retomar algo que se haya quedado previamente.
+
+Es importante usarlo en conjunto con el documento de referencia de R (base-r cheatsheet).
+
+En caso de reiniciar un curso, será necesario usarlo en conjunto con el R-Project correspondiente
+
+En R podemos usar scripts para guiones de código o RMarkdowns para realizar presentaciones de datos. Suele ser mejor comenzar con un RMarkdown, pero por simplicidad vamos a escoger un script (también porque usaremos muchos gráficos y es necesario tenerlos en la pestaña “plots” de Estudio y con un RMarkdown o un Notebook eso no sucede).
+
+Buenas prácticas para un script:
+	◆	Fecha
+	◆	Título genérico
+	◆	Cargar librerías y copiar los datos devueltos (dejarlos comentados para que no interfieran, pero como referencia para el futuro).
+
+
+
+
+
+
+
+</Text>
+            <Comments>Las tres fases principales</Comments>
+        </Document>
+        <Document ID="EF35F0BA-9E5A-49EF-BF99-F402A7601B6F">
+            <Title>Comandos para R</Title>
+            <Text>Comandos para R
+
+10 de noviembre de 2020.
+
+A día de hoy uso la versión 3.6.3 de R.
+
+	◆	Instalar paquetes:
+&gt;install.packages(“tidyverse”) 
+El nombre del paquete tiene que estar entre paréntesis y comillas.
+
+Se puede usar la notación de vector:
+
+&gt;instal.packages(c(“gapminder”, “nycflights13”, “Lahman”))
+En este caso se instalarían los tres paquetes a la vez.
+
+
+	◆	Cargar paquetes:
+&gt;library(tidyverse)
+El nombre del paquete no tiene que estar entre paréntesis
+
+
+	◆	Actualizar paquetes
+Se puede usar el nombre del paquete seguido de “_update”
+
+&gt;tidyverse_update
+
+Todo esto se puede seguir en la chuleta de R-Basic, así que ya lo tengo
+
+Comentarios : usar #
+
+
+
+
+
+
+
+
+
+Eliminar paquetes
+
+</Text>
+        </Document>
+        <Document ID="7BFB0B8D-9F93-4CF3-AF23-8791E7313EE9">
+            <Title>Curso de Introducción a R</Title>
+            <Text>
+	•	Contacto
+	•	Nota informativa
+	•	Objetivo y mecánica del curso
+	•	1 Preliminares
+	•	2 Primeros pasos con R y RStudio
+	•	3 Conceptos básicos de R
+	•	4 Importar y exportar datos
+	•	5 Procesando los datos
+	•	6 Gráficos
+	•	7 RMarkdown
+
+AA
+SerifSans
+WhiteSepiaNight
+Curso de Introducción a R 
+Curso de Introducción a R
+Vicente Coll Serrano y Pedro J. Pérez
+2018-12-03
+Contacto
+Este Curso de Introducción a R es impartido por:
+	•	Vicente Coll Serrano, profesor Titular de Universidad del Área de Métodos Cuantitativos para la Economía y la Empresa (Departamento de Economía Aplicada) de la Universidad de Valencia. 
+	•	Pedro J. Pérez Vázquez, profesor Titular de Universidad del Departamento de Análisis Económico de la Universidad de Valencia. 
+Para más información puedes contactar con nosotros por correo electrónico: Vicente Coll (email), Pedro J. Pérez (email)
+</Text>
+        </Document>
+        <Document ID="3327FE27-49A8-4454-84EA-A1DC525AF657">
+            <Title>Links a tener en cuenta</Title>
+            <Text>Vínculos interesantes
+
+En esta sección voy a colocar los vínculos que busco seguir leyendo o que me parecen interesantes para tener en cuenta. Para ello, los voy a ir cargando en “Marcadores” (externos).</Text>
+        </Document>
+        <Document ID="BB518838-9CC5-4DFA-97A0-79DB80483B89">
+            <Title>¿Cómo usar este documento?</Title>
+            <Text>¿Cómo usar este documento?
+
+La idea de escribir un documento complementario al desarrollo de los cursos es para ir apuntando diversas entradas que no se pueden recoger adecuadamente en un script o en un notebook de R. Además, en Scrivener se pueden cargar imágenes o webs, etc., sin necesidad de tener que abrir otros programas. RStudio cumple su función como IDE, pero es necesario un anexo más versátil que se recogerá en este documento.
+Aquí habrán distintos documentos que recogen discusiones, usos rápidos, estudios y referencias, etc.</Text>
+        </Document>
+    </Documents>
+</SearchIndexes>

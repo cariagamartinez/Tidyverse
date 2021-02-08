@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<title>R-Tidyverse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- NOTE: margin property = top-right-bottom-left -->
+<style type="text/css">
+
+	body {background-color: #e2e2e2}
+    
+    p.topLevelItemTitle {
+    	margin: 30px 0px 5px 0px;
+    	font-family: Times, Times New Roman, Palatino, Cochin, Serif;
+    	font-size: 30px;
+    	}
+    	
+    p.folderTitle {
+    	margin: 30px 0px 5px 0px;
+    	font-family: Times, Times New Roman, Palatino, Cochin, Serif;
+    	font-size: 18px;
+    	}
+    
+    p.itemTitle {
+    	margin: 30px 0px 5px 0px;
+    	font-family: Helvetica, Arial, Sans-Serif;
+    	font-size: 12px;
+    	font-weight: bold;
+    	}
+    	
+    p.itemText {
+    	margin: 0px 0px 10px 0px;
+    	font-family: Helvetica, Arial, Sans-Serif;
+    	font-size: 12px;
+    	}
+    	
+    p.itemTextStart {
+    	margin: 30px 0px 10px 0px;
+    	font-family: Helvetica, Arial, Sans-Serif;
+    	font-size: 12px;
+    	}
+    
+    .page {border: 1px solid #c0c0c0; background: #fff}
+    
+    hr {
+        border: none;
+        height: 1px;
+        color: #d4d4d4;
+        background-color: #d4d4d4;
+      	}
+      	
+    hr.afterTitle {
+    	margin-top: -3px;
+    }
+      	
+    hr.afterText {
+    	margin-top: 30px;
+    }
+      	
+    ul {
+      	list-style-type: none;
+      	padding-left: 30px;
+      	}
+      	
+</style>
+
+</head>
+
+<body>
+
+<table border="0" width="100%" cellspacing="3">
+<tr>
+<td>
+
+<table class="page" width="100%" cellspacing="10" cellpadding="2">
+
+<!-- Top margin -->
+<!-- Not needed, because of the padding above titles. -->
+<!--<tr><td height="15px"></td></tr>-->
+
+<tr>
+
+<!-- 42 + 30 of list indent = 72 - one inch. -->
+<!-- Actually that ends up too much, so we do 25 + 30 = 55px. -->
+<td width="25px">
+
+<td valign="top">
+
+<ul>
+<li>
+<p class="topLevelItemTitle">¿Cómo usar este documento?</p>
+<p class="itemText">¿Cómo usar este documento?</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">La idea de escribir un documento complementario al desarrollo de los cursos es para ir apuntando diversas entradas que no se pueden recoger adecuadamente en un script o en un notebook de R. Además, en Scrivener se pueden cargar imágenes o webs, etc., sin necesidad de tener que abrir otros programas. RStudio cumple su función como IDE, pero es necesario un anexo más versátil que se recogerá en este documento.</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Aquí habrán distintos documentos que recogen discusiones, us...</p>
+</li>
+<li>
+<p class="topLevelItemTitle">Curso R con Tidyverse</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="itemTitle">Bases e inicio de R y Tidyverse</p>
+<p class="itemText">Estos son los apuntes de Ariel para el curso de Tidyverse.</p>
+</li>
+<li>
+<p class="itemTitle">Comandos para R</p>
+<p class="itemText">Comandos para R</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">10 de noviembre de 2020.</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">A día de hoy uso la versión 3.6.3 de R.</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>◆ Instalar paquetes:</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">&gt;install.packages(“tidyverse”)<span class="Apple-converted-space"> </span></span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">El nombre del paquete tiene que estar entre paréntesis y comillas.</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Se puede usar la notación de vector:</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">&gt;instal.packages(c(“gapminder”, “nycflights13”, “Lahman”))</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">En este caso se instalarían los tres paquetes a la vez.</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>◆ Cargar paquetes:</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">&gt;library(tidyverse)</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">El nombre del paquete no tiene que estar entre paréntesis</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>◆ Actualizar paquetes</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Se puede usar el...</p>
+</li>
+<li>
+<p class="itemTitle">Tarea 1</p>
+<p class="itemText"></span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Preguntas de esta tarea</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Toma el siguiente fragmento de código y di qué está mal. ¿Por qué no aparecen pintados los puntos de color verde?</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">ggplot(data = mpg) +</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">  geom_point(mapping = aes(x = displ, y = hwy, color = "green"))</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">NO SE PINTAN PORQUE NO EXISTE LA COLUMNA “green” a la que se pueda asociar la estética</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Toma el dataset de mpg anterior y di qué variables son categóricas.</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Las variables categóricas son clases, como tipos de coches, marcas, tipo de marchas, cilindradas o modelos (solo admi...</p>
+</li>
+</ul>
+</ul>
+
+</td>
+<td width="55px">
+</td>
+</tr>
+
+<!-- Bottom margin -->
+<tr><td height="15px"></td></tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
