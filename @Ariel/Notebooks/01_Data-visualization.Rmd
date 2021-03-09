@@ -1,9 +1,9 @@
 ---
 title: "Data Visualization"
 output:
+  html_notebook: default
   html_document:
     df_print: paged
-  html_notebook: default
   pdf_document: default
 Author: Ariel Cariaga Martínez
 ---
@@ -163,7 +163,7 @@ ggplot(data = mpg) +
 
 ```
 
-## Subgrafícos usando variables categóricas
+## Subgráficos usando variables categóricas
 \
 Hasta ahora habíamos usado variables discretas/categóricas para poner colores en un gráfico y también habíamos visto que muchas veces usar estas variables (categóricas) como parámetros del gráfico llevaba a "advertencias" (_warnings_). Por ello, en este apartado vamos a ver la instrucción __facets__ para subdividir el gráfico en "facetas" siendo cada una de estas facetas una variable discreta. 
 \
@@ -183,8 +183,6 @@ ggplot(data = mpg) +
 \
 En este gráfico, lo que se observa es que en todos los puntos el gasto en carretera y el displacement se grafica, pero se separa según una variable discreta que en este caso es _class_.
 \
-
-
 
 
 
