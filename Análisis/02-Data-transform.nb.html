@@ -11,7 +11,7 @@
 
 
 
-<title>Data Visualization</title>
+<title>R Notebook</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -59,6 +59,15 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <style type="text/css">.pagedtable {
 overflow: auto;
 padding-left: 8px;
@@ -1497,7 +1506,6 @@ window.initializeCodeFolding = function(show) {
     // create a collapsable div to wrap the code in
     var div = $('<div class="collapse r-code-collapse"></div>');
     var showThis = (show || $(this).hasClass('fold-show')) && !$(this).hasClass('fold-hide');
-    if (showThis) div.addClass('in');
     var id = 'rcode-643E0F36' + currentIndex++;
     div.attr('id', id);
     $(this).before(div);
@@ -1505,7 +1513,7 @@ window.initializeCodeFolding = function(show) {
 
     // add a show code button right above
     var showCodeText = $('<span>' + (showThis ? 'Hide' : 'Code') + '</span>');
-    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs code-folding-btn pull-right"></button>');
+    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm code-folding-btn pull-right float-right"></button>');
     showCodeButton.append(showCodeText);
     showCodeButton
         .attr('data-toggle', 'collapse')
@@ -1521,13 +1529,27 @@ window.initializeCodeFolding = function(show) {
 
     div.before(buttonRow);
 
+    // show the div if necessary
+    if (showThis) div.collapse('show');
+
     // update state of button on show/hide
-    div.on('hidden.bs.collapse', function () {
+    //   * Change text
+    //   * add a class for intermediate states styling
+    div.on('hide.bs.collapse', function () {
       showCodeText.text('Code');
+      showCodeButton.addClass('btn-collapsing');
+    });
+    div.on('hidden.bs.collapse', function () {
+      showCodeButton.removeClass('btn-collapsing');
     });
     div.on('show.bs.collapse', function () {
       showCodeText.text('Hide');
+      showCodeButton.addClass('btn-expanding');
     });
+    div.on('shown.bs.collapse', function () {
+      showCodeButton.removeClass('btn-expanding');
+    });
+
   });
 
 }
@@ -1573,11 +1595,6 @@ color: rgb(3, 106, 7);
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -1591,30 +1608,6 @@ if (window.hljs) {
 
 
 <style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
 #rmd-source-code {
   display: none;
 }
@@ -1630,10 +1623,6 @@ h6 {
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
 }
@@ -1648,6 +1637,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+pre code {
+  padding: 0;
 }
 </style>
 
@@ -1685,7 +1677,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1752,11 +1743,11 @@ summary {
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 <li role="separator" class="divider"></li>
@@ -1766,231 +1757,188 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Data Visualization</h1>
+<h1 class="title toc-ignore">R Notebook</h1>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<p><br />
-Buenas prácticas para un script:</p>
-<ul>
-<li>Poner la fecha</li>
-<li>Poner un título genérico.</li>
-<li>Cargar las librerías y copiar los datos devueltos en la consola para tenerlos como referencias para el futuro.</li>
-</ul>
-<div id="cargar-librerías." class="section level2">
-<h2>Cargar librerías.</h2>
-<p><br />
-Entonces, en primer lugar vamos a cargar la librería <strong>“tidyverse”</strong>:</p>
+<p>Como siempre, vamos a cargar la librería <code>tidyverse()</code> y los datos que usaremos, en este caso, <em>nycflights13</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYGBgclxuYGBgclxuYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGBcbmBgYFxuYGBgXG5gYGBcbmBgYCJ9 -->
-<pre class="r"><code>```r
-```r
-```r
-```r
-library(tidyverse)</code></pre>
-<pre><code></code></pre>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXHUwMDFiWzMwbeKUgOKUgCBcdTAwMWJbMW1BdHRhY2hpbmcgcGFja2FnZXNcdTAwMWJbMjJtIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2UgMS4zLjEg4pSA4pSAXHUwMDFiWzM5bVxuXHUwMDFiWzMwbVx1MDAxYlszMm3inJNcdTAwMWJbMzBtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzMwbSAzLjMuMyAgICAgXHUwMDFiWzMybeKck1x1MDAxYlszMG0gXHUwMDFiWzM0bXB1cnJyICBcdTAwMWJbMzBtIDAuMy40XG5cdTAwMWJbMzJt4pyTXHUwMDFiWzMwbSBcdTAwMWJbMzRtdGliYmxlIFx1MDAxYlszMG0gMy4xLjEgICAgIFx1MDAxYlszMm3inJNcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5ciAgXHUwMDFiWzMwbSAxLjAuNlxuXHUwMDFiWzMybeKck1x1MDAxYlszMG0gXHUwMDFiWzM0bXRpZHlyICBcdTAwMWJbMzBtIDEuMS4zICAgICBcdTAwMWJbMzJt4pyTXHUwMDFiWzMwbSBcdTAwMWJbMzRtc3RyaW5nclx1MDAxYlszMG0gMS40LjBcblx1MDAxYlszMm3inJNcdTAwMWJbMzBtIFx1MDAxYlszNG1yZWFkciAgXHUwMDFiWzMwbSAxLjQuMCAgICAgXHUwMDFiWzMybeKck1x1MDAxYlszMG0gXHUwMDFiWzM0bWZvcmNhdHNcdTAwMWJbMzBtIDAuNS4xXHUwMDFiWzM5bVxuXHUwMDFiWzMwbeKUgOKUgCBcdTAwMWJbMW1Db25mbGljdHNcdTAwMWJbMjJtIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG5cdTAwMWJbMzFteFx1MDAxYlszMG0gXHUwMDFiWzM0bWRwbHlyXHUwMDFiWzMwbTo6XHUwMDFiWzMybWZpbHRlcigpXHUwMDFiWzMwbSBtYXNrcyBcdTAwMWJbMzRtc3RhdHNcdTAwMWJbMzBtOjpmaWx0ZXIoKVxuXHUwMDFiWzMxbXhcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1sYWcoKVx1MDAxYlszMG0gICAgbWFza3MgXHUwMDFiWzM0bXN0YXRzXHUwMDFiWzMwbTo6bGFnKClcdTAwMWJbMzltXG4ifQ== -->
+<pre><code>[30m── [1mAttaching packages[22m ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──[39m
+[30m[32m✓[30m [34mggplot2[30m 3.3.3     [32m✓[30m [34mpurrr  [30m 0.3.4
+[32m✓[30m [34mtibble [30m 3.1.1     [32m✓[30m [34mdplyr  [30m 1.0.6
+[32m✓[30m [34mtidyr  [30m 1.1.3     [32m✓[30m [34mstringr[30m 1.4.0
+[32m✓[30m [34mreadr  [30m 1.4.0     [32m✓[30m [34mforcats[30m 0.5.1[39m
+[30m── [1mConflicts[22m ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+[31mx[30m [34mdplyr[30m::[32mfilter()[30m masks [34mstats[30m::filter()
+[31mx[30m [34mdplyr[30m::[32mlag()[30m    masks [34mstats[30m::lag()[39m</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />
-Como buena práctica, <strong>es importante tener registrada la salida por consola para conocer el estado y versión de los paquetes cargados</strong>.</p>
-<p><br />
-Esto es lo que obtenemos a día de hoy:</p>
-<ul>
-<li>── Attaching packages ──────────────────────────────────────────────── tidyverse 1.3.0 ──</li>
-<li>✓ ggplot2 3.3.2 ✓ purrr 0.3.4</li>
-<li>✓ tibble 3.0.4 ✓ dplyr 1.0.2</li>
-<li>✓ tidyr 1.1.2 ✓ stringr 1.4.0</li>
-<li>✓ readr 1.4.0 ✓ forcats 0.5.0 ── Conflicts ─────────────────────────────────────────────────── tidyverse_conflicts() ──</li>
-<li>x dplyr::filter() masks stats::filter()</li>
-<li>x dplyr::lag() masks stats::lag()</li>
-</ul>
-<hr />
-</div>
-<div id="analisis-preliminar-cargar-datos-preestablecidos" class="section level2">
-<h2>Analisis preliminar: Cargar datos preestablecidos</h2>
-<p><br />
-Para comenzar a visualizar los datos, necesitamos datos y también preguntas sobre esos datos. Vamos a empezar con estos dos puntos:</p>
 <p><br />
 </p>
-<p><strong>Preguntas</strong>.</p>
-<ul>
-<li>Los coches con motor más grande ¿consumen más combustible que los coches con motor más pequeño?</li>
-<li>La relación consumo / tamaño ¿es lineal? ¿Es no lineal? ¿Es exponencial? ¿Es positiva? ¿Es negativa?</li>
-</ul>
+<p><strong>Es posible que sea necesario instalar el paquete de nycflights13</strong></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShueWNmbGlnaHRzMTMpXG5mbGlnaHRzIDwtIG55Y2ZsaWdodHMxMzo6ZmxpZ2h0c1xuYGBgIn0= -->
+<pre class="r"><code>library(nycflights13)
+flights &lt;- nycflights13::flights</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><br />
 </p>
-<p><strong>Datos</strong>.</p>
-<p>Vamos a cargar un dataset que viene de serie en RStudio y que se llama <strong>“mpg”</strong>.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90Mjo6bXBnXG5gYGAifQ== -->
-<pre class="r"><code>ggplot2::mpg</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />
-Como podemos ver, hay coches y datos sobre los mismos (estos datasets vienen por defecto en R) y se puede saber que son datos ya que al cargar el código ggplot2::mpg se observa un icono de celdas. Sin embargo, verlo así es muy complicado por lo que es mejor ver la tabla completa con el comando “View” (lleva V mayúscula inicial):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmlldyhtcGcpXG5gYGAifQ== -->
-<pre class="r"><code>View(mpg)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />
-Tras ejecutar este código tendremos una nueva pestaña donde se mostrará una rejilla con todos los datos necesarios.</p>
-<p>Hay muchas columnas con muchos datos y nombres que es posible que nos sepamos su significado. Pero podemos consultar acerca del dataset con la siguiente instrucción:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVscChtcGcpIFxuYGBgIn0= -->
-<pre class="r"><code>help(mpg) </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />
-Otra opción para realizar la misma consulta es:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuP21wZyAjRXF1aXZhbGVudGUgYSBoZWxwLlxuYGBgIn0= -->
-<pre class="r"><code>?mpg #Equivalente a help.</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />
-Por ahora nos quedamos con el recordatorio de dos nombres:</p>
-<ul>
-<li><strong>displ</strong>: tamaño del motor del coche en litros</li>
-<li><strong>hwy</strong>: número de millas recorridas en autopista por galón de combustible (3.785411784 litros).</li>
-</ul>
-<hr />
-</div>
-<div id="primera-representación" class="section level2">
-<h2>Primera representación</h2>
-<p><br />
-Vamos a hacer una primera representación con el siguiente código:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICtcbiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHg9ZGlzcGwsIHkgPSBod3kpKVxuYGBgIn0= -->
-<pre class="r"><code>ggplot(data = mpg) +
-  geom_point(mapping = aes(x=displ, y = hwy))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />
-Como podemos ver en la instrucción:</p>
-<p><br />
-</p>
-<ol style="list-style-type: upper-alpha">
-<li>Llamamos a ggplot y le indicamos que los datos a utilizar serán los del <em>dataset</em> (que ya tenemos cargado) <strong>mpg</strong>. En esta línea creamos el “entorno” de toda la gráfica y luego vamos agregando <em>capas</em> de información.</li>
-<li>Agregamos un símbolo “+” que en este contexto significa que agregaremos más información a la instrucción.</li>
-<li>Definimos el tipo de geometría de representación que queremos (en este caso, puntos = scatterplot o nube de puntos) y en la estética (aes) indicamos qué columna es <span class="math inline">\(x\)</span> y qué columna es <span class="math inline">\(y\)</span> así como las propiedades visuales.</li>
+<p>Las funciones que usaremos serán:</p>
+<p>• filter –&gt; filtrar datos a partir de valores concretos. • arrange –&gt; reordenar (ordenar) las filas. • select –&gt; seleccionar variables por sus nombres. • mutate –&gt; crear nuevas variables (con funciones) a partir de las existentes (muta alguna de las existentes para crear otras). • summarise –&gt; colapsar varios valores para dar resumen de ellos.</p>
+<p>Todos se pueden usar combinadas con group_by() (que agrupa por una o más columnas)</p>
+<p>Para usarlas siempre necesitamos/haremos lo siguiente:</p>
+<ol style="list-style-type: decimal">
+<li>Tibble.</li>
+<li>Operaciones que queremos hacer a las variables.</li>
+<li>Resultado en un nuevo dataframe (tibble).</li>
 </ol>
-<p><em><strong>Cada vez que se use una propiedad “geom_lo-que-sea” hay que indicarle un “mapping” y un “aes”</strong></em>.</p>
+<p>Veamos entonces el uso de cada una de las funciones.<br />
+</p>
+<div id="filter" class="section level4">
+<h4>FILTER</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuamFuMSA8LSBmaWx0ZXIoZmxpZ2h0cywgbW9udGggPT0gMSwgZGF5ID09IDEpXG5qdW45IDwtIGZpbHRlciAoZmxpZ2h0cywgbW9udGggPT0gNiwgZGF5ID09OSlcbmBgYCJ9 -->
+<pre class="r"><code>jan1 &lt;- filter(flights, month == 1, day == 1)
+jun9 &lt;- filter (flights, month == 6, day ==9)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><br />
 </p>
-</div>
-<div id="primera-conclusión-plantilla-general" class="section level2">
-<h2>Primera conclusión: plantilla general</h2>
-<p><br />
-<strong>PLANTILLA PARA HACER UNA REPRESENTACIÓN GRÁFICA CON GGPLOT</strong></p>
-<p><br />
-ggplot(data = datos_a_representar) +<br />
-geom_function(mapping = aes(<MAPPINGS>))</p>
-<hr />
+<p>Recordemos que existen operadores booleanos para usar en filtrados como: OR = | (unión) AND = &amp; (conjunción) NOT = !</p>
+<p>En este caso, queremos filtrar vuelos de mayo o junio.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF5anVuIDwtIGZpbHRlcihmbGlnaHRzLCBtb250aCA9PSA1IHwgbW9udGggPT0gNilcbmBgYCJ9 -->
+<pre class="r"><code>mayjun &lt;- filter(flights, month == 5 | month == 6)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><br />
 </p>
-</div>
-<div id="estéticas-del-gráfico" class="section level2">
-<h2>Estéticas del gráfico</h2>
-<div id="colores" class="section level4">
-<h4>Colores</h4>
-<p>Vamos a generar un gráfico, donde nos interesaría agregar una nueva dimensión, donde podamos modificar ligeramente la estética del gráfico para resaltar algunas características en particular.</p>
+<p>Podríamos usar la sintaxis de Maggrit y obtendríamos lo mismo:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICtcbiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9aHd5LCBjb2xvciA9IGNsYXNzKSlcbmBgYCJ9 -->
-<pre class="r"><code>ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y =hwy, color = class))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />
-En este caso, el color viene definido por la columna “class”, pintándose en un color diferente cada una de las clases/tipo (que son categorías) de coches. Si nos fijamos en el gráfico, parece que los coches con “mayor gasto” (mayor displ/potencia y gasto medio) son los coches de 2 asientos…probablemente deportivos.<br />
-</p>
-</div>
-<div id="tamaño" class="section level4">
-<h4>Tamaño</h4>
-<p>Otra opción sería que el gráfico generara distintos conglomerados según el tipo de coche y eso podemos verlo con el comando <em>size</em>:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGE9bXBnKSArXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPWh3eSwgc2l6ZSA9IGNsYXNzKSlcbmBgYCJ9 -->
-<pre class="r"><code>ggplot(data=mpg) +
-  geom_point(mapping = aes(x = displ, y =hwy, size = class))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />
-Hay un aviso porque “size” es un comando que espera un tamaño (numérico) y nosotros le estamos pasando categorías (class).<br />
-#### Transparencia de los puntos Para ello vamos a usar el comando “alpha”</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90IChkYXRhID0gbXBnKSArXG4gIGdlb21fcG9pbnQgKG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgeSA9IGh3eSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIGFscGhhID0gY2xhc3NcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgICAgKVxuYGBgIn0= -->
-<pre class="r"><code>ggplot (data = mpg) +
-  geom_point (mapping = aes(x = displ,
-                           y = hwy,
-                           alpha = class
-                           )
-              )</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>#### Formas</p>
-<p>También podríamos jugar con las formas de los puntos: asignar una forma a cada punto. El problema es que ggplot es capaz de manejar hasta un máximo de 6 formas bajo el parámetro “shape”. Veamos:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICtcbiAgICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIHkgPSBod3ksIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgc2hhcGUgPSBjbGFzc1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgICAgKVxuXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) +
-    geom_point(mapping = aes(x = displ, 
-                           y = hwy, 
-                           shape = class
-                           )
-               )
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF5anVuMiA8LSBmaWx0ZXIoZmxpZ2h0cywgbW9udGggJWluJSBjKDUsNikpXG5gYGAifQ== -->
+<pre class="r"><code>mayjun2 &lt;- filter(flights, month %in% c(5,6))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-</div>
-<div id="subgrafícos-usando-variables-categóricas" class="section level2">
-<h2>Subgrafícos usando variables categóricas</h2>
-<p><br />
-Hasta ahora habíamos usado variables discretas/categóricas para poner colores en un gráfico y también habíamos visto que muchas veces usar estas variables (categóricas) como parámetros del gráfico llevaba a “advertencias” (<em>warnings</em>). Por ello, en este apartado vamos a ver la instrucción <strong>facets</strong> para subdividir el gráfico en “facetas” siendo cada una de estas facetas una variable discreta.<br />
-Por ejemplo: imaginemos que en lugar que querer un color en el gráfico por cada tipo de coche, realmente queremos un gráfico separado donde <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> sigan siendo las mismas pero queremos subgráficos con cada uno de los tipos de coche. En ese caso podemos usar <em>facets</em>. Así, en cada subgráfico, las variables representadas siguen siendo iguales pero se distribuyen según la variable categórica selecionada.<br />
-La variable seleccionada se indica con una tilde ~ (altgr + ñ) y luego se pueden indicar el número de columnas (“ncol”) y filas (&quot;“nrow”) en las que queremos que se distribuyan las gráficas.<br />
-Veamos un ejemplo:</p>
+<div id="arrange" class="section level4">
+<h4>ARRANGE</h4>
+<p>Sirve para ordenar las filas según criterios específicos (específicamente ordenará de menor a mayor, a no ser que usemos la función <code>desc</code>).</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICtcbiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHg9IGRpc3BsLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB5ID0gaHd5XG4gICAgICAgICAgICAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICAgKSArIFxuICBmYWNldF93cmFwKH5jbGFzcywgbnJvdyA9IDQpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) +
-  geom_point(mapping = aes(x= displ, 
-                            y = hwy
-                           )
-             ) + 
-  facet_wrap(~class, nrow = 4)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc29ydGVkX2FycmFuZ2UgPC0gYXJyYW5nZShmbGlnaHRzLCB5ZWFyLCBtb250aCwgZGF5KVxuXG5zb3J0ZWRfYXJyYW5nZTIgPC0gYXJyYW5nZShmbGlnaHRzLCBkZXNjKGRlcF9kZWxheSkpXG5gYGAifQ== -->
+<pre class="r"><code>sorted_arrange &lt;- arrange(flights, year, month, day)
+
+sorted_arrange2 &lt;- arrange(flights, desc(dep_delay))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />
-En este gráfico, lo que se observa es que en todos los puntos el gasto en carretera y el displacement se grafica, pero se separa según una variable discreta que en este caso es <em>class</em>.<br />
-</p>
+</div>
+<div id="select-seleccionar-variables-de-interés-y-mover-columnas" class="section level4">
+<h4>SELECT (seleccionar variables de interés y mover columnas)</h4>
+<p>Sirve para seleccionar columnas de interés. En este caso, usamos dos columnas.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2VsZWN0X2ZsaWdodHMgPC0gc2VsZWN0KHNvcnRlZF9hcnJhbmdlLCBkZXBfZGVsYXksIGFycl9kZWxheSlcblxuc2VsZWN0X2ZsaWdodHMyIDwtIHNlbGVjdCAoZmxpZ2h0cywgLSh5ZWFyOmRheSkpICNTZSBhcGxpY2FuIHRvZGFzIGxhcyBvcGNpb25lcyBnZW5lcmFsZXMgZGUgYWNjZXNvXG5gYGAifQ== -->
+<pre class="r"><code>select_flights &lt;- select(sorted_arrange, dep_delay, arr_delay)
+
+select_flights2 &lt;- select (flights, -(year:day)) #Se aplican todas las opciones generales de acceso</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Hay <strong>helpers</strong> para mejorar la selección:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2VsZWN0X2ZsaWdodHMzIDwtIHNlbGVjdChzb3J0ZWRfYXJyYW5nZSwgc3RhcnRzX3dpdGgoXCJkZXBcIikpXG5zZWxlY3RfZmxpZ2h0czQgPC0gc2VsZWN0KHNvcnRlZF9hcnJhbmdlLCBlbmRzX3dpdGgoXCJkZWxheVwiKSlcbnNlbGVjdF9mbGlnaHRzNSA8LSBzZWxlY3Qoc29ydGVkX2FycmFuZ2UsIGNvbnRhaW5zKFwic1wiKSlcbnNlbGVjdF9mbGlnaHRzNiA8LSBzZWxlY3Qoc29ydGVkX2FycmFuZ2UsIG1hdGNoZXMoXCIoLilcXFxcMVwiKSkgI0V4cHJlc2lvbmVzIHJlZ3VsYXJlcywgZW4gZXN0ZSBjYXNvIGJ1c2NhIGRvcyBsZXRyYXMgaWd1YWxlcyBzZWd1aWRhc1xuYGBgIn0= -->
+<pre class="r"><code>select_flights3 &lt;- select(sorted_arrange, starts_with(&quot;dep&quot;))
+select_flights4 &lt;- select(sorted_arrange, ends_with(&quot;delay&quot;))
+select_flights5 &lt;- select(sorted_arrange, contains(&quot;s&quot;))
+select_flights6 &lt;- select(sorted_arrange, matches(&quot;(.)\\1&quot;)) #Expresiones regulares, en este caso busca dos letras iguales seguidas</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>También podemos usar SELECT para reorganizar columnas. Así, colocamos las columnas en el orden que queremos y luego usamos la función <strong>everything()</strong> para que se cargue el resto de variables.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVvcmdhbml6ZWRfZmxpZ2h0cyA8LSBzZWxlY3QgKGZsaWdodHMsIHRpbWVfaG91ciwgZGlzdGFuY2UsIGFycl90aW1lLCBldmVyeXRoaW5nKCkpXG5gYGAifQ== -->
+<pre class="r"><code>reorganized_flights &lt;- select (flights, time_hour, distance, arr_time, everything())</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="rename-renombrar-columnas" class="section level4">
+<h4>RENAME (renombrar columnas)</h4>
+<p>Se utiliza para renombrar una variable. Se indica el nobre nuevo = nombre antiguo (rercordemos que siempre se genera todo un dataset nuevo entero)</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVuYW1lZF9mbGlnaHRzIDwtIHJlbmFtZShmbGlnaHRzLCBkZXB0aW1lID0gZGVwX3RpbWUpXG5gYGAifQ== -->
+<pre class="r"><code>renamed_flights &lt;- rename(flights, deptime = dep_time)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="mutate-obtener-nuevas-columnas-a-partir-de-las-columnas-que-ya-tenemos" class="section level4">
+<h4>MUTATE (obtener nuevas columnas a partir de las columnas que ya tenemos)</h4>
+<p>Siempre agrega nuevas columnas al final. Se mantiene el dataset de inicio y se va modificando lo que sea necesario. En este caso, creamos dos nuevas variables que surgen de combinación de las otras.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmxpZ2h0c19uZXcgPC0gc2VsZWN0KGZsaWdodHMsXG4gICAgICAgICAgICAgICAgICAgICAgeWVhcjpkYXksXG4gICAgICAgICAgICAgICAgICAgICAgZW5kc193aXRoKFwiZGVsYXlcIiksXG4gICAgICAgICAgICAgICAgICAgICAgZGlzdGFuY2UsXG4gICAgICAgICAgICAgICAgICAgICAgYWlyX3RpbWUpICNDcmVhbW9zIHVuIGRhdGFzZXQgY29uIDcgdmFyaWFibGVzXG5cbm11dGF0ZShmbGlnaHRzX25ldyxcbiAgICAgICB0aW1lX2dhaW4gPSBhcnJfZGVsYXktZGVwX2RlbGF5LFxuICAgICAgIGZsaWdodF9zcGVlZCA9IGRpc3RhbmNlLyhhaXJfdGltZS82MCkpIC0+IGZsaWdodHNfbmV3ICNDcmVhbW9zIG51ZXZhcyB2YXJpYWJsZXMgeSBzZSBsbyBhc2lnbmFtb3MgYWwgZGF0YXNldCBhbnRlcmlvci4gU2UgbWFudGllbmVuIGxhcyB2YXJpYWJsZXMgYW50aWd1YXMgeSBsYXMgbnVldmFzXG5gYGAifQ== -->
+<pre class="r"><code>flights_new &lt;- select(flights,
+                      year:day,
+                      ends_with(&quot;delay&quot;),
+                      distance,
+                      air_time) #Creamos un dataset con 7 variables
+
+mutate(flights_new,
+       time_gain = arr_delay-dep_delay,
+       flight_speed = distance/(air_time/60)) -&gt; flights_new #Creamos nuevas variables y se lo asignamos al dataset anterior. Se mantienen las variables antiguas y las nuevas</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="transmute" class="section level4">
+<h4>TRANSMUTE</h4>
+<p>En el caso de que las variables anteriores no nos interesen, entonces podemos hacer uso de <strong>transmute</strong> que solo contendrán las variables calculadas.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmxpZ2h0c19uZXdfdmFyaWFibGUgPC0gdHJhbnNtdXRlKGZsaWdodHNfbmV3LFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGltZV9nYWluID0gYXJyX2RlbGF5LWRlcF9kZWxheSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZsaWdodF9zcGVlZCA9IGRpc3RhbmNlLyhhaXJfdGltZS82MCkpXG5gYGAifQ== -->
+<pre class="r"><code>flights_new_variable &lt;- transmute(flights_new,
+                                    time_gain = arr_delay-dep_delay,
+                                    flight_speed = distance/(air_time/60))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="summarise" class="section level4">
+<h4>SUMMARISE</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYnlfbW9udGhfZ3JvdXAgPC0gZ3JvdXBfYnkoZmxpZ2h0cywgeWVhciwgbW9udGgpXG5ieV9jYXJyaWVyIDwtIGdyb3VwX2J5KGZsaWdodHMsIGNhcnJpZXIpXG5gYGAifQ== -->
+<pre class="r"><code>by_month_group &lt;- group_by(flights, year, month)
+by_carrier &lt;- group_by(flights, carrier)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRGF0YSBWaXN1YWxpemF0aW9uIgpvdXRwdXQ6CiAgaHRtbF9kb2N1bWVudDoKICAgIGRmX3ByaW50OiBwYWdlZAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKQXV0aG9yOiBBcmllbCBDYXJpYWdhIE1hcnTDrW5legotLS0KXApCdWVuYXMgcHLDoWN0aWNhcyBwYXJhIHVuIHNjcmlwdDoKCiogUG9uZXIgbGEgZmVjaGEKKiBQb25lciB1biB0w610dWxvIGdlbsOpcmljby4KKiBDYXJnYXIgbGFzIGxpYnJlcsOtYXMgeSBjb3BpYXIgbG9zIGRhdG9zIGRldnVlbHRvcyBlbiBsYSBjb25zb2xhIHBhcmEgdGVuZXJsb3MgY29tbyByZWZlcmVuY2lhcyBwYXJhIGVsIGZ1dHVyby4KCiMjIENhcmdhciBsaWJyZXLDrWFzLgpcCkVudG9uY2VzLCBlbiBwcmltZXIgbHVnYXIgdmFtb3MgYSBjYXJnYXIgbGEgbGlicmVyw61hIF9fInRpZHl2ZXJzZSJfXzoKYGBge3IgQ2FyZ2FyIGxpYnJlcsOtYX0KbGlicmFyeSh0aWR5dmVyc2UpCmBgYApcCkNvbW8gYnVlbmEgcHLDoWN0aWNhLCBfX2VzIGltcG9ydGFudGUgdGVuZXIgcmVnaXN0cmFkYSBsYSBzYWxpZGEgcG9yIGNvbnNvbGEgcGFyYSBjb25vY2VyIGVsIGVzdGFkbyB5IHZlcnNpw7NuIGRlIGxvcyBwYXF1ZXRlcyBjYXJnYWRvc19fLgoKXApFc3RvIGVzIGxvIHF1ZSBvYnRlbmVtb3MgYSBkw61hIGRlIGhveToKCgoqIOKUgOKUgCBBdHRhY2hpbmcgcGFja2FnZXMg4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAIHRpZHl2ZXJzZSAxLjMuMCDilIDilIAKKiDinJMgZ2dwbG90MiAzLjMuMiAgICAg4pyTIHB1cnJyICAgMC4zLjQKKiDinJMgdGliYmxlICAzLjAuNCAgICAg4pyTIGRwbHlyICAgMS4wLjIKKiDinJMgdGlkeXIgICAxLjEuMiAgICAg4pyTIHN0cmluZ3IgMS40LjAKKiDinJMgcmVhZHIgICAxLjQuMCAgICAg4pyTIGZvcmNhdHMgMC41LjAK4pSA4pSAIENvbmZsaWN0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgAoqIHggZHBseXI6OmZpbHRlcigpIG1hc2tzIHN0YXRzOjpmaWx0ZXIoKQoqIHggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKQoKLS0tCgojIyBBbmFsaXNpcyBwcmVsaW1pbmFyOiBDYXJnYXIgZGF0b3MgcHJlZXN0YWJsZWNpZG9zClwKUGFyYSBjb21lbnphciBhIHZpc3VhbGl6YXIgbG9zIGRhdG9zLCBuZWNlc2l0YW1vcyBkYXRvcyB5IHRhbWJpw6luIHByZWd1bnRhcyBzb2JyZSBlc29zIGRhdG9zLiBWYW1vcyBhIGVtcGV6YXIgY29uIGVzdG9zIGRvcyBwdW50b3M6CgpcCgpfX1ByZWd1bnRhc19fLgoKLSBMb3MgY29jaGVzIGNvbiBtb3RvciBtw6FzIGdyYW5kZSDCv2NvbnN1bWVuIG3DoXMgY29tYnVzdGlibGUgcXVlIGxvcyBjb2NoZXMgY29uIG1vdG9yIG3DoXMgcGVxdWXDsW8/Ci0gTGEgcmVsYWNpw7NuIGNvbnN1bW8gLyB0YW1hw7FvIMK/ZXMgbGluZWFsPyDCv0VzIG5vIGxpbmVhbD8gwr9FcyBleHBvbmVuY2lhbD8gwr9FcyBwb3NpdGl2YT8gwr9FcyBuZWdhdGl2YT8KClwKCl9fRGF0b3NfXy4KClZhbW9zIGEgY2FyZ2FyIHVuIGRhdGFzZXQgcXVlIHZpZW5lIGRlIHNlcmllIGVuIFJTdHVkaW8geSBxdWUgc2UgbGxhbWEgX18ibXBnIl9fLgoKYGBge3IgSW5kaWNhciBkYXRhc2V0fQpnZ3Bsb3QyOjptcGcKYGBgClwKQ29tbyBwb2RlbW9zIHZlciwgaGF5IGNvY2hlcyB5IGRhdG9zIHNvYnJlIGxvcyBtaXNtb3MgKGVzdG9zIGRhdGFzZXRzIHZpZW5lbiBwb3IgZGVmZWN0byBlbiBSKSB5IHNlIHB1ZWRlIHNhYmVyIHF1ZSBzb24gZGF0b3MgeWEgcXVlIGFsIGNhcmdhciBlbCBjw7NkaWdvIGdncGxvdDI6Om1wZyBzZSBvYnNlcnZhIHVuIGljb25vIGRlIGNlbGRhcy4KU2luIGVtYmFyZ28sIHZlcmxvIGFzw60gZXMgbXV5IGNvbXBsaWNhZG8gcG9yIGxvIHF1ZSBlcyBtZWpvciB2ZXIgbGEgdGFibGEgY29tcGxldGEgY29uIGVsIGNvbWFuZG8gIlZpZXciIChsbGV2YSBWIG1hecO6c2N1bGEgaW5pY2lhbCk6CmBgYHtyIFZlciBlbCBkYXRhc2V0fQpWaWV3KG1wZykKYGBgClwKVHJhcyBlamVjdXRhciBlc3RlIGPDs2RpZ28gdGVuZHJlbW9zIHVuYSBudWV2YSBwZXN0YcOxYSBkb25kZSBzZSBtb3N0cmFyw6EgdW5hIHJlamlsbGEgY29uIHRvZG9zIGxvcyBkYXRvcyBuZWNlc2FyaW9zLgoKSGF5IG11Y2hhcyBjb2x1bW5hcyBjb24gbXVjaG9zIGRhdG9zIHkgbm9tYnJlcyBxdWUgZXMgcG9zaWJsZSBxdWUgbm9zIHNlcGFtb3Mgc3Ugc2lnbmlmaWNhZG8uIFBlcm8gcG9kZW1vcyBjb25zdWx0YXIgYWNlcmNhIGRlbCBkYXRhc2V0IGNvbiBsYSBzaWd1aWVudGUgaW5zdHJ1Y2Npw7NuOgpgYGB7ciBTb2xpY2l0YXIgYXl1ZGEgMX0KaGVscChtcGcpIApgYGAKXApPdHJhIG9wY2nDs24gcGFyYSByZWFsaXphciBsYSBtaXNtYSBjb25zdWx0YSBlczoKYGBge3IgU29saWNpdGFyIGF5dWRhIDJ9Cj9tcGcgI0VxdWl2YWxlbnRlIGEgaGVscC4KYGBgClwKUG9yIGFob3JhIG5vcyBxdWVkYW1vcyBjb24gZWwgcmVjb3JkYXRvcmlvIGRlIGRvcyBub21icmVzOgoKLSBfX2Rpc3BsX186IHRhbWHDsW8gZGVsIG1vdG9yIGRlbCBjb2NoZSBlbiBsaXRyb3MKLSBfX2h3eV9fOiBuw7ptZXJvIGRlIG1pbGxhcyByZWNvcnJpZGFzIGVuIGF1dG9waXN0YSBwb3IgZ2Fsw7NuIGRlIGNvbWJ1c3RpYmxlICgzLjc4NTQxMTc4NCBsaXRyb3MpLgoKLS0tCgojIyBQcmltZXJhIHJlcHJlc2VudGFjacOzbgpcClZhbW9zIGEgaGFjZXIgdW5hIHByaW1lcmEgcmVwcmVzZW50YWNpw7NuIGNvbiBlbCBzaWd1aWVudGUgY8OzZGlnbzoKYGBge3IgUHJpbWVyIGdyw6FmaWNvfQpnZ3Bsb3QoZGF0YSA9IG1wZykgKwogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4PWRpc3BsLCB5ID0gaHd5KSkKYGBgClwKQ29tbyBwb2RlbW9zIHZlciBlbiBsYSBpbnN0cnVjY2nDs246CgpcCgpBKSBMbGFtYW1vcyBhIGdncGxvdCB5IGxlIGluZGljYW1vcyBxdWUgbG9zIGRhdG9zIGEgdXRpbGl6YXIgc2Vyw6FuIGxvcyBkZWwgX2RhdGFzZXRfIChxdWUgeWEgdGVuZW1vcyBjYXJnYWRvKSBfX21wZ19fLiBFbiBlc3RhIGzDrW5lYSBjcmVhbW9zIGVsICJlbnRvcm5vIiBkZSB0b2RhIGxhIGdyw6FmaWNhIHkgbHVlZ28gdmFtb3MgYWdyZWdhbmRvIF9jYXBhc18gZGUgaW5mb3JtYWNpw7NuLgpCKSBBZ3JlZ2Ftb3MgdW4gc8OtbWJvbG8gIisiIHF1ZSBlbiBlc3RlIGNvbnRleHRvIHNpZ25pZmljYSBxdWUgYWdyZWdhcmVtb3MgbcOhcyBpbmZvcm1hY2nDs24gYSBsYSBpbnN0cnVjY2nDs24uCkMpIERlZmluaW1vcyBlbCB0aXBvIGRlIGdlb21ldHLDrWEgZGUgcmVwcmVzZW50YWNpw7NuIHF1ZSBxdWVyZW1vcyAoZW4gZXN0ZSBjYXNvLCBwdW50b3MgPSBzY2F0dGVycGxvdCBvIG51YmUgZGUgcHVudG9zKSB5IGVuIGxhIGVzdMOpdGljYSAoYWVzKSBpbmRpY2Ftb3MgcXXDqSBjb2x1bW5hIGVzICR4JCB5IHF1w6kgY29sdW1uYSBlcyAkeSQgYXPDrSBjb21vIGxhcyBwcm9waWVkYWRlcyB2aXN1YWxlcy4KCl8qKkNhZGEgdmV6IHF1ZSBzZSB1c2UgdW5hIHByb3BpZWRhZCAiZ2VvbV9sby1xdWUtc2VhIiBoYXkgcXVlIGluZGljYXJsZSB1biAibWFwcGluZyIgeSB1biAiYWVzIioqXy4KClwKCiMjIFByaW1lcmEgY29uY2x1c2nDs246IHBsYW50aWxsYSBnZW5lcmFsClwKX19QTEFOVElMTEEgUEFSQSBIQUNFUiBVTkEgUkVQUkVTRU5UQUNJw5NOIEdSw4FGSUNBIENPTiBHR1BMT1RfXwoKXApnZ3Bsb3QoZGF0YSA9IGRhdG9zX2FfcmVwcmVzZW50YXIpICsKXAogIGdlb21fZnVuY3Rpb24obWFwcGluZyA9IGFlcyg8TUFQUElOR1M+KSkKCi0tLQpcCgojIyBFc3TDqXRpY2FzIGRlbCBncsOhZmljbwoKIyMjIyBDb2xvcmVzCgpWYW1vcyBhIGdlbmVyYXIgdW4gZ3LDoWZpY28sIGRvbmRlIG5vcyBpbnRlcmVzYXLDrWEgYWdyZWdhciB1bmEgbnVldmEgZGltZW5zacOzbiwgZG9uZGUgcG9kYW1vcyBtb2RpZmljYXIgbGlnZXJhbWVudGUgbGEgZXN0w6l0aWNhIGRlbCBncsOhZmljbyBwYXJhIHJlc2FsdGFyIGFsZ3VuYXMgY2FyYWN0ZXLDrXN0aWNhcyBlbiBwYXJ0aWN1bGFyLiAKYGBge3IgRXN0ZXRpY2F9CmdncGxvdChkYXRhID0gbXBnKSArCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9aHd5LCBjb2xvciA9IGNsYXNzKSkKYGBgClwKRW4gZXN0ZSBjYXNvLCBlbCBjb2xvciB2aWVuZSBkZWZpbmlkbyBwb3IgbGEgY29sdW1uYSAiY2xhc3MiLCBwaW50w6FuZG9zZSBlbiB1biBjb2xvciBkaWZlcmVudGUgY2FkYSB1bmEgZGUgbGFzIGNsYXNlcy90aXBvIChxdWUgc29uIGNhdGVnb3LDrWFzKSBkZSBjb2NoZXMuIFNpIG5vcyBmaWphbW9zIGVuIGVsIGdyw6FmaWNvLCBwYXJlY2UgcXVlIGxvcyBjb2NoZXMgY29uICJtYXlvciBnYXN0byIgKG1heW9yIGRpc3BsL3BvdGVuY2lhIHkgZ2FzdG8gbWVkaW8pIHNvbiBsb3MgY29jaGVzIGRlIDIgYXNpZW50b3MuLi5wcm9iYWJsZW1lbnRlIGRlcG9ydGl2b3MuClwKCiMjIyMgVGFtYcOxbwoKT3RyYSBvcGNpw7NuIHNlcsOtYSBxdWUgZWwgZ3LDoWZpY28gZ2VuZXJhcmEgZGlzdGludG9zIGNvbmdsb21lcmFkb3Mgc2Vnw7puIGVsIHRpcG8gZGUgY29jaGUgeSBlc28gcG9kZW1vcyB2ZXJsbyBjb24gZWwgY29tYW5kbyBfc2l6ZV86CmBgYHtyfQpnZ3Bsb3QoZGF0YT1tcGcpICsKICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID1od3ksIHNpemUgPSBjbGFzcykpCmBgYApcCkhheSB1biBhdmlzbyBwb3JxdWUgInNpemUiIGVzIHVuIGNvbWFuZG8gcXVlIGVzcGVyYSB1biB0YW1hw7FvIChudW3DqXJpY28pIHkgbm9zb3Ryb3MgbGUgZXN0YW1vcyBwYXNhbmRvIGNhdGVnb3LDrWFzIChjbGFzcykuClwKIyMjIyBUcmFuc3BhcmVuY2lhIGRlIGxvcyBwdW50b3MKUGFyYSBlbGxvIHZhbW9zIGEgdXNhciBlbCBjb21hbmRvICJhbHBoYSIKYGBge3J9CmdncGxvdCAoZGF0YSA9IG1wZykgKwogIGdlb21fcG9pbnQgKG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLAogICAgICAgICAgICAgICAgICAgICAgICAgICB5ID0gaHd5LAogICAgICAgICAgICAgICAgICAgICAgICAgICBhbHBoYSA9IGNsYXNzCiAgICAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICApCmBgYAoKIyMjI8KgRm9ybWFzCgpUYW1iacOpbiBwb2Ryw61hbW9zIGp1Z2FyIGNvbiBsYXMgZm9ybWFzIGRlIGxvcyBwdW50b3M6IGFzaWduYXIgdW5hIGZvcm1hIGEgY2FkYSBwdW50by4gRWwgcHJvYmxlbWEgZXMgcXVlIGdncGxvdCBlcyBjYXBheiBkZSBtYW5lamFyIGhhc3RhIHVuIG3DoXhpbW8gZGUgNiBmb3JtYXMgYmFqbyBlbCBwYXLDoW1ldHJvICJzaGFwZSIuIFZlYW1vczoKYGBge3J9CmdncGxvdChkYXRhID0gbXBnKSArCiAgICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgeSA9IGh3eSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgIHNoYXBlID0gY2xhc3MKICAgICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICApCgpgYGAKCiMjIFN1YmdyYWbDrWNvcyB1c2FuZG8gdmFyaWFibGVzIGNhdGVnw7NyaWNhcwpcCkhhc3RhIGFob3JhIGhhYsOtYW1vcyB1c2FkbyB2YXJpYWJsZXMgZGlzY3JldGFzL2NhdGVnw7NyaWNhcyBwYXJhIHBvbmVyIGNvbG9yZXMgZW4gdW4gZ3LDoWZpY28geSB0YW1iacOpbiBoYWLDrWFtb3MgdmlzdG8gcXVlIG11Y2hhcyB2ZWNlcyB1c2FyIGVzdGFzIHZhcmlhYmxlcyAoY2F0ZWfDs3JpY2FzKSBjb21vIHBhcsOhbWV0cm9zIGRlbCBncsOhZmljbyBsbGV2YWJhIGEgImFkdmVydGVuY2lhcyIgKF93YXJuaW5nc18pLiBQb3IgZWxsbywgZW4gZXN0ZSBhcGFydGFkbyB2YW1vcyBhIHZlciBsYSBpbnN0cnVjY2nDs24gX19mYWNldHNfXyBwYXJhIHN1YmRpdmlkaXIgZWwgZ3LDoWZpY28gZW4gImZhY2V0YXMiIHNpZW5kbyBjYWRhIHVuYSBkZSBlc3RhcyBmYWNldGFzIHVuYSB2YXJpYWJsZSBkaXNjcmV0YS4gClwKUG9yIGVqZW1wbG86IGltYWdpbmVtb3MgcXVlIGVuIGx1Z2FyIHF1ZSBxdWVyZXIgdW4gY29sb3IgZW4gZWwgZ3LDoWZpY28gcG9yIGNhZGEgdGlwbyBkZSBjb2NoZSwgcmVhbG1lbnRlIHF1ZXJlbW9zIHVuIGdyw6FmaWNvIHNlcGFyYWRvIGRvbmRlICR4JCBlICR5JCBzaWdhbiBzaWVuZG8gbGFzIG1pc21hcyBwZXJvIHF1ZXJlbW9zIHN1Ymdyw6FmaWNvcyBjb24gY2FkYSB1bm8gZGUgbG9zIHRpcG9zIGRlIGNvY2hlLiBFbiBlc2UgY2FzbyBwb2RlbW9zIHVzYXIgX2ZhY2V0c18uIEFzw60sIGVuIGNhZGEgc3ViZ3LDoWZpY28sIGxhcyB2YXJpYWJsZXMgcmVwcmVzZW50YWRhcyBzaWd1ZW4gc2llbmRvIGlndWFsZXMgcGVybyBzZSBkaXN0cmlidXllbiBzZWfDum4gbGEgdmFyaWFibGUgY2F0ZWfDs3JpY2Egc2VsZWNpb25hZGEuIApcCkxhIHZhcmlhYmxlIHNlbGVjY2lvbmFkYSBzZSBpbmRpY2EgY29uIHVuYSB0aWxkZSB+IChhbHRnciArIMOxKSB5IGx1ZWdvIHNlIHB1ZWRlbiBpbmRpY2FyIGVsIG7Dum1lcm8gZGUgY29sdW1uYXMgKCJuY29sIikgeSBmaWxhcyAoIiJucm93IikgZW4gbGFzIHF1ZSBxdWVyZW1vcyBxdWUgc2UgZGlzdHJpYnV5YW4gbGFzIGdyw6FmaWNhcy4KXApWZWFtb3MgdW4gZWplbXBsbzoKYGBge3J9CmdncGxvdChkYXRhID0gbXBnKSArCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHg9IGRpc3BsLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHkgPSBod3kKICAgICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgKSArIAogIGZhY2V0X3dyYXAofmNsYXNzLCBucm93ID0gNCkKYGBgClwKRW4gZXN0ZSBncsOhZmljbywgbG8gcXVlIHNlIG9ic2VydmEgZXMgcXVlIGVuIHRvZG9zIGxvcyBwdW50b3MgZWwgZ2FzdG8gZW4gY2FycmV0ZXJhIHkgZWwgZGlzcGxhY2VtZW50IHNlIGdyYWZpY2EsIHBlcm8gc2Ugc2VwYXJhIHNlZ8O6biB1bmEgdmFyaWFibGUgZGlzY3JldGEgcXVlIGVuIGVzdGUgY2FzbyBlcyBfY2xhc3NfLgpcCgoKCgoKCgoKCgoKCgoKCgoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKCkNvbW8gc2llbXByZSwgdmFtb3MgYSBjYXJnYXIgbGEgbGlicmVyw61hIGB0aWR5dmVyc2UoKWAgeSBsb3MgZGF0b3MgcXVlIHVzYXJlbW9zLCBlbiBlc3RlIGNhc28sICpueWNmbGlnaHRzMTMqLgoKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpgYGAKXAoKKipFcyBwb3NpYmxlIHF1ZSBzZWEgbmVjZXNhcmlvIGluc3RhbGFyIGVsIHBhcXVldGUgZGUgbnljZmxpZ2h0czEzKioKCmBgYHtyfQpsaWJyYXJ5KG55Y2ZsaWdodHMxMykKZmxpZ2h0cyA8LSBueWNmbGlnaHRzMTM6OmZsaWdodHMKYGBgClwKCkxhcyBmdW5jaW9uZXMgcXVlIHVzYXJlbW9zIHNlcsOhbjogCgrigKIgZmlsdGVyIC0tPiBmaWx0cmFyIGRhdG9zIGEgcGFydGlyIGRlIHZhbG9yZXMgY29uY3JldG9zLgrigKIgYXJyYW5nZSAtLT4gcmVvcmRlbmFyIChvcmRlbmFyKSBsYXMgZmlsYXMuCuKAoiBzZWxlY3QgLS0+IHNlbGVjY2lvbmFyIHZhcmlhYmxlcyBwb3Igc3VzIG5vbWJyZXMuCuKAoiBtdXRhdGUgLS0+IGNyZWFyIG51ZXZhcyB2YXJpYWJsZXMgKGNvbiBmdW5jaW9uZXMpIGEgcGFydGlyIGRlIGxhcyBleGlzdGVudGVzIChtdXRhIGFsZ3VuYSBkZSBsYXMgZXhpc3RlbnRlcyBwYXJhIGNyZWFyIG90cmFzKS4K4oCiIHN1bW1hcmlzZSAtLT4gY29sYXBzYXIgdmFyaW9zIHZhbG9yZXMgcGFyYSBkYXIgcmVzdW1lbiBkZSBlbGxvcy4KClRvZG9zIHNlIHB1ZWRlbiB1c2FyIGNvbWJpbmFkYXMgY29uIGdyb3VwX2J5KCkgKHF1ZSBhZ3J1cGEgcG9yIHVuYSBvIG3DoXMgY29sdW1uYXMpCgpQYXJhIHVzYXJsYXMgc2llbXByZSBuZWNlc2l0YW1vcy9oYXJlbW9zIGxvIHNpZ3VpZW50ZToKCjEuIFRpYmJsZS4KMi4gT3BlcmFjaW9uZXMgcXVlIHF1ZXJlbW9zIGhhY2VyIGEgbGFzIHZhcmlhYmxlcy4KMy4gUmVzdWx0YWRvIGVuIHVuIG51ZXZvIGRhdGFmcmFtZSAodGliYmxlKS4KClZlYW1vcyBlbnRvbmNlcyBlbCB1c28gZGUgY2FkYSB1bmEgZGUgbGFzIGZ1bmNpb25lcy4KXAoKIyMjIyBGSUxURVIKCmBgYHtyfQpqYW4xIDwtIGZpbHRlcihmbGlnaHRzLCBtb250aCA9PSAxLCBkYXkgPT0gMSkKanVuOSA8LSBmaWx0ZXIgKGZsaWdodHMsIG1vbnRoID09IDYsIGRheSA9PTkpCmBgYApcCgpSZWNvcmRlbW9zIHF1ZSBleGlzdGVuIG9wZXJhZG9yZXMgYm9vbGVhbm9zIHBhcmEgdXNhciBlbiBmaWx0cmFkb3MgY29tbzoKT1IgPSB8ICh1bmnDs24pCkFORCA9ICYgKGNvbmp1bmNpw7NuKQpOT1QgPSAhCgpFbiBlc3RlIGNhc28sIHF1ZXJlbW9zIGZpbHRyYXIgdnVlbG9zIGRlIG1heW8gbyBqdW5pby4KCmBgYHtyfQptYXlqdW4gPC0gZmlsdGVyKGZsaWdodHMsIG1vbnRoID09IDUgfCBtb250aCA9PSA2KQpgYGAKXAoKUG9kcsOtYW1vcyB1c2FyIGxhIHNpbnRheGlzIGRlIE1hZ2dyaXQgeSBvYnRlbmRyw61hbW9zIGxvIG1pc21vOgoKYGBge3J9Cm1heWp1bjIgPC0gZmlsdGVyKGZsaWdodHMsIG1vbnRoICVpbiUgYyg1LDYpKQpgYGAKCiMjIyMgQVJSQU5HRQoKU2lydmUgcGFyYSBvcmRlbmFyIGxhcyBmaWxhcyBzZWfDum4gY3JpdGVyaW9zIGVzcGVjw61maWNvcyAoZXNwZWPDrWZpY2FtZW50ZSBvcmRlbmFyw6EgZGUgbWVub3IgYSBtYXlvciwgYSBubyBzZXIgcXVlIHVzZW1vcyBsYSBmdW5jacOzbiBgZGVzY2ApLgoKYGBge3J9CnNvcnRlZF9hcnJhbmdlIDwtIGFycmFuZ2UoZmxpZ2h0cywgeWVhciwgbW9udGgsIGRheSkKCnNvcnRlZF9hcnJhbmdlMiA8LSBhcnJhbmdlKGZsaWdodHMsIGRlc2MoZGVwX2RlbGF5KSkKYGBgCgojIyMjIFNFTEVDVCAoc2VsZWNjaW9uYXIgdmFyaWFibGVzIGRlIGludGVyw6lzIHkgbW92ZXIgY29sdW1uYXMpCgpTaXJ2ZSBwYXJhIHNlbGVjY2lvbmFyIGNvbHVtbmFzIGRlIGludGVyw6lzLiBFbiBlc3RlIGNhc28sIHVzYW1vcyBkb3MgY29sdW1uYXMuCgpgYGB7cn0Kc2VsZWN0X2ZsaWdodHMgPC0gc2VsZWN0KHNvcnRlZF9hcnJhbmdlLCBkZXBfZGVsYXksIGFycl9kZWxheSkKCnNlbGVjdF9mbGlnaHRzMiA8LSBzZWxlY3QgKGZsaWdodHMsIC0oeWVhcjpkYXkpKSAjU2UgYXBsaWNhbiB0b2RhcyBsYXMgb3BjaW9uZXMgZ2VuZXJhbGVzIGRlIGFjY2VzbwpgYGAKCkhheSBfX2hlbHBlcnNfXyBwYXJhIG1lam9yYXIgbGEgc2VsZWNjacOzbjoKCmBgYHtyfQpzZWxlY3RfZmxpZ2h0czMgPC0gc2VsZWN0KHNvcnRlZF9hcnJhbmdlLCBzdGFydHNfd2l0aCgiZGVwIikpCnNlbGVjdF9mbGlnaHRzNCA8LSBzZWxlY3Qoc29ydGVkX2FycmFuZ2UsIGVuZHNfd2l0aCgiZGVsYXkiKSkKc2VsZWN0X2ZsaWdodHM1IDwtIHNlbGVjdChzb3J0ZWRfYXJyYW5nZSwgY29udGFpbnMoInMiKSkKc2VsZWN0X2ZsaWdodHM2IDwtIHNlbGVjdChzb3J0ZWRfYXJyYW5nZSwgbWF0Y2hlcygiKC4pXFwxIikpICNFeHByZXNpb25lcyByZWd1bGFyZXMsIGVuIGVzdGUgY2FzbyBidXNjYSBkb3MgbGV0cmFzIGlndWFsZXMgc2VndWlkYXMKYGBgCgpUYW1iacOpbiBwb2RlbW9zIHVzYXIgU0VMRUNUIHBhcmEgcmVvcmdhbml6YXIgY29sdW1uYXMuIEFzw60sIGNvbG9jYW1vcyBsYXMgY29sdW1uYXMgZW4gZWwgb3JkZW4gcXVlIHF1ZXJlbW9zIHkgbHVlZ28gdXNhbW9zIGxhIGZ1bmNpw7NuICoqZXZlcnl0aGluZygpKiogcGFyYSBxdWUgc2UgY2FyZ3VlIGVsIHJlc3RvIGRlIHZhcmlhYmxlcy4KCmBgYHtyfQpyZW9yZ2FuaXplZF9mbGlnaHRzIDwtIHNlbGVjdCAoZmxpZ2h0cywgdGltZV9ob3VyLCBkaXN0YW5jZSwgYXJyX3RpbWUsIGV2ZXJ5dGhpbmcoKSkKYGBgCgoKIyMjIyBSRU5BTUUgKHJlbm9tYnJhciBjb2x1bW5hcykKClNlIHV0aWxpemEgcGFyYSByZW5vbWJyYXIgdW5hIHZhcmlhYmxlLiBTZSBpbmRpY2EgZWwgbm9icmUgbnVldm8gPSBub21icmUgYW50aWd1byAocmVyY29yZGVtb3MgcXVlIHNpZW1wcmUgc2UgZ2VuZXJhIHRvZG8gdW4gZGF0YXNldCBudWV2byBlbnRlcm8pCgpgYGB7cn0KcmVuYW1lZF9mbGlnaHRzIDwtIHJlbmFtZShmbGlnaHRzLCBkZXB0aW1lID0gZGVwX3RpbWUpCmBgYAoKIyMjIyBNVVRBVEUgKG9idGVuZXIgbnVldmFzIGNvbHVtbmFzIGEgcGFydGlyIGRlIGxhcyBjb2x1bW5hcyBxdWUgeWEgdGVuZW1vcykgCgpTaWVtcHJlIGFncmVnYSBudWV2YXMgY29sdW1uYXMgYWwgZmluYWwuIFNlIG1hbnRpZW5lIGVsIGRhdGFzZXQgZGUgaW5pY2lvIHkgc2UgdmEgbW9kaWZpY2FuZG8gbG8gcXVlIHNlYSBuZWNlc2FyaW8uCkVuIGVzdGUgY2FzbywgY3JlYW1vcyBkb3MgbnVldmFzIHZhcmlhYmxlcyBxdWUgc3VyZ2VuIGRlIGNvbWJpbmFjacOzbiBkZSBsYXMgb3RyYXMuCgpgYGB7cn0KZmxpZ2h0c19uZXcgPC0gc2VsZWN0KGZsaWdodHMsCiAgICAgICAgICAgICAgICAgICAgICB5ZWFyOmRheSwKICAgICAgICAgICAgICAgICAgICAgIGVuZHNfd2l0aCgiZGVsYXkiKSwKICAgICAgICAgICAgICAgICAgICAgIGRpc3RhbmNlLAogICAgICAgICAgICAgICAgICAgICAgYWlyX3RpbWUpICNDcmVhbW9zIHVuIGRhdGFzZXQgY29uIDcgdmFyaWFibGVzCgptdXRhdGUoZmxpZ2h0c19uZXcsCiAgICAgICB0aW1lX2dhaW4gPSBhcnJfZGVsYXktZGVwX2RlbGF5LAogICAgICAgZmxpZ2h0X3NwZWVkID0gZGlzdGFuY2UvKGFpcl90aW1lLzYwKSkgLT4gZmxpZ2h0c19uZXcgI0NyZWFtb3MgbnVldmFzIHZhcmlhYmxlcyB5IHNlIGxvIGFzaWduYW1vcyBhbCBkYXRhc2V0IGFudGVyaW9yLiBTZSBtYW50aWVuZW4gbGFzIHZhcmlhYmxlcyBhbnRpZ3VhcyB5IGxhcyBudWV2YXMKYGBgCgojIyMjIFRSQU5TTVVURQoKRW4gZWwgY2FzbyBkZSBxdWUgbGFzIHZhcmlhYmxlcyBhbnRlcmlvcmVzIG5vIG5vcyBpbnRlcmVzZW4sIGVudG9uY2VzIHBvZGVtb3MgaGFjZXIgdXNvIGRlICoqdHJhbnNtdXRlKiogcXVlIHNvbG8gY29udGVuZHLDoW4gbGFzIHZhcmlhYmxlcyBjYWxjdWxhZGFzLgoKYGBge3J9CmZsaWdodHNfbmV3X3ZhcmlhYmxlIDwtIHRyYW5zbXV0ZShmbGlnaHRzX25ldywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGltZV9nYWluID0gYXJyX2RlbGF5LWRlcF9kZWxheSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZmxpZ2h0X3NwZWVkID0gZGlzdGFuY2UvKGFpcl90aW1lLzYwKSkKYGBgCgojIyMjIFNVTU1BUklTRQoKYGBge3J9CmJ5X21vbnRoX2dyb3VwIDwtIGdyb3VwX2J5KGZsaWdodHMsIHllYXIsIG1vbnRoKQpieV9jYXJyaWVyIDwtIGdyb3VwX2J5KGZsaWdodHMsIGNhcnJpZXIpCmBgYAoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo=</div>
 
 
 
@@ -2029,7 +1977,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -2037,7 +1985,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("20201112_NB_Data-visualization.Rmd");
+  window.initializeSourceEmbed("02-Data-transform.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

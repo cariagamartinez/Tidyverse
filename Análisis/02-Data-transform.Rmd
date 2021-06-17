@@ -1,0 +1,182 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+Como siempre, vamos a cargar la librería `tidyverse()` y los datos que usaremos, en este caso, *nycflights13*.
+
+```{r}
+library(tidyverse)
+```
+\
+
+**Es posible que sea necesario instalar el paquete de nycflights13**
+
+```{r}
+library(nycflights13)
+flights <- nycflights13::flights
+```
+\
+
+Las funciones que usaremos serán: 
+
+• filter --> filtrar datos a partir de valores concretos.
+• arrange --> reordenar (ordenar) las filas.
+• select --> seleccionar variables por sus nombres.
+• mutate --> crear nuevas variables (con funciones) a partir de las existentes (muta alguna de las existentes para crear otras).
+• summarise --> colapsar varios valores para dar resumen de ellos.
+
+Todos se pueden usar combinadas con group_by() (que agrupa por una o más columnas)
+
+Para usarlas siempre necesitamos/haremos lo siguiente:
+
+1. Tibble.
+2. Operaciones que queremos hacer a las variables.
+3. Resultado en un nuevo dataframe (tibble).
+
+Veamos entonces el uso de cada una de las funciones.
+\
+
+#### FILTER
+
+```{r}
+jan1 <- filter(flights, month == 1, day == 1)
+jun9 <- filter (flights, month == 6, day ==9)
+```
+\
+
+Recordemos que existen operadores booleanos para usar en filtrados como:
+OR = | (unión)
+AND = & (conjunción)
+NOT = !
+
+En este caso, queremos filtrar vuelos de mayo o junio.
+
+```{r}
+mayjun <- filter(flights, month == 5 | month == 6)
+```
+\
+
+Podríamos usar la sintaxis de Maggrit y obtendríamos lo mismo:
+
+```{r}
+mayjun2 <- filter(flights, month %in% c(5,6))
+```
+
+#### ARRANGE
+
+Sirve para ordenar las filas según criterios específicos (específicamente ordenará de menor a mayor, a no ser que usemos la función `desc`).
+
+```{r}
+sorted_arrange <- arrange(flights, year, month, day)
+
+sorted_arrange2 <- arrange(flights, desc(dep_delay))
+```
+
+#### SELECT (seleccionar variables de interés y mover columnas)
+
+Sirve para seleccionar columnas de interés. En este caso, usamos dos columnas.
+
+```{r}
+select_flights <- select(sorted_arrange, dep_delay, arr_delay)
+
+select_flights2 <- select (flights, -(year:day)) #Se aplican todas las opciones generales de acceso
+```
+
+Hay __helpers__ para mejorar la selección:
+
+```{r}
+select_flights3 <- select(sorted_arrange, starts_with("dep"))
+select_flights4 <- select(sorted_arrange, ends_with("delay"))
+select_flights5 <- select(sorted_arrange, contains("s"))
+select_flights6 <- select(sorted_arrange, matches("(.)\\1")) #Expresiones regulares, en este caso busca dos letras iguales seguidas
+```
+
+También podemos usar SELECT para reorganizar columnas. Así, colocamos las columnas en el orden que queremos y luego usamos la función **everything()** para que se cargue el resto de variables.
+
+```{r}
+reorganized_flights <- select (flights, time_hour, distance, arr_time, everything())
+```
+
+
+#### RENAME (renombrar columnas)
+
+Se utiliza para renombrar una variable. Se indica el nobre nuevo = nombre antiguo (rercordemos que siempre se genera todo un dataset nuevo entero)
+
+```{r}
+renamed_flights <- rename(flights, deptime = dep_time)
+```
+
+#### MUTATE (obtener nuevas columnas a partir de las columnas que ya tenemos) 
+
+Siempre agrega nuevas columnas al final. Se mantiene el dataset de inicio y se va modificando lo que sea necesario.
+En este caso, creamos dos nuevas variables que surgen de combinación de las otras.
+
+```{r}
+flights_new <- select(flights,
+                      year:day,
+                      ends_with("delay"),
+                      distance,
+                      air_time) #Creamos un dataset con 7 variables
+
+mutate(flights_new,
+       time_gain = arr_delay-dep_delay,
+       flight_speed = distance/(air_time/60)) -> flights_new #Creamos nuevas variables y se lo asignamos al dataset anterior. Se mantienen las variables antiguas y las nuevas
+```
+
+#### TRANSMUTE
+
+En el caso de que las variables anteriores no nos interesen, entonces podemos hacer uso de **transmute** que solo contendrán las variables calculadas.
+
+```{r}
+flights_new_variable <- transmute(flights_new,
+                                    time_gain = arr_delay-dep_delay,
+                                    flight_speed = distance/(air_time/60))
+```
+
+#### SUMMARISE
+
+```{r}
+by_month_group <- group_by(flights, year, month)
+by_carrier <- group_by(flights, carrier)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

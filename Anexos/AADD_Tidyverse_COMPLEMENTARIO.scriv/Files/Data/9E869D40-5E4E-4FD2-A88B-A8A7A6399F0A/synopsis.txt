@@ -1,1 +1,0 @@
-Estos son los apuntes de Ariel para el curso de Tidyverse.

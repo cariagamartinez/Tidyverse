@@ -17,10 +17,13 @@ Buenas prácticas para un script:
 ## Cargar librerías.
 \
 Entonces, en primer lugar vamos a cargar la librería __"tidyverse"__:
-```{r Cargar librería}
+\
+
+```{r Cargar librería, warning=TRUE}
 library(tidyverse)
 ```
 \
+
 Como buena práctica, __es importante tener registrada la salida por consola para conocer el estado y versión de los paquetes cargados__.
 
 \
@@ -59,24 +62,31 @@ Vamos a cargar un dataset que viene de serie en RStudio y que se llama __"mpg"__
 ggplot2::mpg
 ```
 \
+
 Como podemos ver, hay coches y datos sobre los mismos (estos datasets vienen por defecto en R) y se puede saber que son datos ya que al cargar el código ggplot2::mpg se observa un icono de celdas.
 Sin embargo, verlo así es muy complicado por lo que es mejor ver la tabla completa con el comando "View" (lleva V mayúscula inicial):
+
 ```{r Ver el dataset}
 View(mpg)
 ```
 \
+
 Tras ejecutar este código tendremos una nueva pestaña donde se mostrará una rejilla con todos los datos necesarios.
 
 Hay muchas columnas con muchos datos y nombres que es posible que nos sepamos su significado. Pero podemos consultar acerca del dataset con la siguiente instrucción:
+
 ```{r Solicitar ayuda 1}
 help(mpg) 
 ```
 \
+
 Otra opción para realizar la misma consulta es:
+
 ```{r Solicitar ayuda 2}
 ?mpg #Equivalente a help.
 ```
 \
+
 Por ahora nos quedamos con el recordatorio de dos nombres:
 
 - __displ__: tamaño del motor del coche en litros
@@ -87,16 +97,18 @@ Por ahora nos quedamos con el recordatorio de dos nombres:
 ## Primera representación
 \
 Vamos a hacer una primera representación con el siguiente código:
+
 ```{r Primer gráfico}
 ggplot(data = mpg) +
   geom_point(mapping = aes(x=displ, y = hwy))
 ```
 \
+
 Como podemos ver en la instrucción:
 
 \
 
-A) Llamamos a ggplot y le indicamos que los datos a utilizar serán los del _dataset_ (que ya tenemos cargado) __mpg__. En esta línea creamos el "entorno" de toda la gráfica y luego vamos agregando _capas_ de información.
+A) Llamamos a `ggplot()` y le indicamos que los datos a utilizar serán los del dataset (que ya tenemos cargado) __mpg__. En esta línea creamos el "entorno" de toda la gráfica y luego vamos agregando _capas_ de información.
 B) Agregamos un símbolo "+" que en este contexto significa que agregaremos más información a la instrucción.
 C) Definimos el tipo de geometría de representación que queremos (en este caso, puntos = scatterplot o nube de puntos) y en la estética (aes) indicamos qué columna es $x$ y qué columna es $y$ así como las propiedades visuales.
 
@@ -183,8 +195,6 @@ ggplot(data = mpg) +
 \
 En este gráfico, lo que se observa es que en todos los puntos el gasto en carretera y el displacement se grafica, pero se separa según una variable discreta que en este caso es _class_.
 \
-
-
 
 
 
